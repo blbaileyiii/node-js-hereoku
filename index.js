@@ -3,6 +3,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 var dbRouter = require('./routes/db');
+var personRouter = require('./routes/getPerson');
 var getRateRouter = require('./routes/getRate');
 
 express()
@@ -11,5 +12,6 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .use('/db', dbRouter)
+  .use('/getPerson', personRouter)
   .use('/postalrate', getRateRouter)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
