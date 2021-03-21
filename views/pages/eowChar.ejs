@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include ("../partials/header.ejs") %>
+</head>
+
+<body>
+
+<%- include ("../partials/nav.ejs") %>
+
+<div class="container">
+  <h2><%= character[0].charname %></h2>
+
+  <ul>
+      <% character.forEach(function(c) { %>
+          <li><%= c.charid %><%= " - " + c.charname %><%= " - " + c.locationid %></li>
+      <% }); %>
+  </ul>
+
+  <div id="locHub">
+    <h2><%= locs[0].pname %></h2>
+    <ul>
+      <% locs.forEach(function(l) { %>
+          <% if (l.status) { %>
+            <li><%= l.cname %> - <button value='<%= l.cid %>' onclick='getAJAXResponse("/eowHub?locid=" + this.value)'; %>>Explore</button></li>
+          <% } else { %>
+            <li><%= l.cname %> - Locked</li>
+            <% } %>
+      <% }); %>
+    </ul>
+  </div>
+
+
+</div>
+
+<script src="/js/locationhub.js"></script>
+
+</body>
+</html>

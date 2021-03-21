@@ -9,11 +9,11 @@
 <%- include ("../partials/nav.ejs") %>
 
 <div class="container">
-<h2>Database Results</h2>
+<h2>Explore Whimsy</h2>
 
 <ul>
     <% results.forEach(function(r) { %>
-        <li><%= r.firstName %> - <%= r.LastName %></li>
+        <li><%= "" + r.charname %> - <a href='/explore?charid=<%= r.charid %>&locid=<%=""+r.locationid %>' title=''>Explore</a></li>
     <% }); %>
 </ul>
 

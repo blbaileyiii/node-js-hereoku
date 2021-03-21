@@ -7,11 +7,11 @@ var dbConnect = require('../connections/eowDB');
 router.get('/', async (req, res) => {
     try {
         const client = await dbConnect.connect();
-        const result = await client.query('SELECT * FROM char');
+        const result = await client.query('SELECT charid, charname, locationid FROM char');
         const results = { 'results': (result) ? result.rows : null};
-        res.end(JSON.stringify(results));
-        //res.render('pages/eowdb', results );
-        client.release();
+        //res.end(JSON.stringify(results));
+        res.render('pages/eowChars', results );
+        //client.release();
     } catch (err) {
         console.error(err);
         res.send("Error " + err);
