@@ -10,6 +10,7 @@
 
 <div class="container">
   <h2><%= character[0].charname %></h2>
+  <input type="hidden" class="charid" value='<%= character[0].charid %>'>
 
   <ul>
       <% character.forEach(function(c) { %>
@@ -22,12 +23,12 @@
     <ul>
       <% locs.forEach(function(l) { %>
           <% if (l.status) { %>
-            <li><%= l.cname %> - <button value='<%= l.cid %>' onclick='getAJAXResponse("/eowHub?locid=" + this.value)'; %>>Explore</button></li>
+            <li><%= l.cname %> - <button value='<%= l.cid %>' onclick="setLocation(this.value)"; %>>Explore</button></li>
           <% } else { %>
             <li><%= l.cname %> - Locked</li>
             <% } %>
       <% }); %>
-    </ul>
+    </ul>    
   </div>
 
 
