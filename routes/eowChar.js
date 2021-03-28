@@ -20,7 +20,7 @@ router
         console.log(charList);
 
         //Char Id info
-        sqlStr = 'SELECT charid, charname, locationid FROM char WHERE charid =' + charid;
+        sqlStr = 'SELECT charid, charname, bio, locationid FROM char WHERE charid =' + charid;
         result = await client.query(sqlStr);
         let character = (result) ? result.rows : null;
         console.log(character);
