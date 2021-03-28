@@ -7,7 +7,7 @@ var dbConnect = require('../connections/eowDB');
 router.get('/', async (req, res) => {
     try {
         const client = await dbConnect.connect();
-        const result = await client.query('SELECT charid, charname FROM char WHERE userid=1');
+        const result = await client.query('SELECT charid, charname FROM char WHERE userid=1 ORDER BY charname');
         let charList = (result) ? result.rows : null;
         
         //console.log(charList);

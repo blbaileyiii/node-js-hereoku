@@ -14,7 +14,7 @@ router
         let client = await dbConnect.connect();
 
         //Nav List
-        let sqlStr = 'SELECT charid, charname, locationid FROM char WHERE userid=1';
+        let sqlStr = 'SELECT charid, charname, locationid FROM char WHERE userid=1 ORDER BY charname';
         let result = await client.query(sqlStr);
         let charList = (result) ? result.rows : null;
         console.log(charList);
