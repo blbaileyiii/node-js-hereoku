@@ -27,21 +27,25 @@ function getLocHub(url) {
 
 function buildLocHubHTML(hubObj) {
     let locHub = document.getElementById('locHub');
-    let h2 = document.createElement("h2");
+    let h3 = document.createElement("h3");
+    let p = document.createElement("p");
+    let h4 = document.createElement("h4");
     let ul = document.createElement("ul");
 
     //console.log(hubObj);
 
     hubObj = hubObj.results;
 
-    h2.textContent = hubObj[0].pname;
+    h3.textContent = hubObj[0].pname;
+    p.textContent = hubObj[0].pdesc;
+    h4.textContent = "Connecting Routes";
     for(i=0; i < hubObj.length; i++) {
         //console.log(hubObj[i]);
         let li = document.createElement("li");
         if (hubObj[i].status){
             li.innerHTML = hubObj[i].cname + " - <button value='" + hubObj[i].cid + "' onclick='setLocation(this.value)'>Explore</button>";
         } else {
-            li.innerHTML = hubObj[i].cname + " - Locked";    
+            li.innerHTML = hubObj[i].cname + " - <span class='glyphicon glyphicon-lock'></span> Locked";    
         }
         //console.log(li);
         ul.appendChild(li);
@@ -49,7 +53,9 @@ function buildLocHubHTML(hubObj) {
 
     locHub.innerHTML = "";
 
-    locHub.appendChild(h2);
+    locHub.appendChild(h3);
+    locHub.appendChild(p);
+    locHub.appendChild(h4);
     locHub.appendChild(ul);
 }
 
