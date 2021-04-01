@@ -38,9 +38,9 @@ function buildLocHubHTML(hubObj) {
 
     hubObj = hubObj.results;
 
-    h3.textContent = hubObj[0].pname;
+    h3.textContent = "Current Location: " + hubObj[0].pname;
     p.textContent = hubObj[0].pdesc;
-    h4.textContent = "Connecting Routes";
+    h4.textContent = "Connecting Routes:";
     for(i=0; i < hubObj.length; i++) {
         //console.log(hubObj[i]);
         let li = document.createElement("li");

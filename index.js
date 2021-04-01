@@ -4,8 +4,6 @@ const PORT = process.env.PORT || 5000
 
 var session = require('express-session');
 
-var dbConnect = require('./connections/eowDB');
-
 var eowCharsRouter = require('./routes/eowChars');
 var eowCharRouter = require('./routes/eowChar');
 var eowHubRouter = require('./routes/eowHub');
@@ -15,7 +13,6 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .use(express.urlencoded({ extended: true })) // NEEDED FOR POST
   .use(session({
     secret: 'my-super-secret-secret!',
     resave: false,

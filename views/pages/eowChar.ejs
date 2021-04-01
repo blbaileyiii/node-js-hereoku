@@ -13,9 +13,9 @@
   <input type='hidden' class='charid' value='<%= character[0].charid %>'>
   <p><%= character[0].bio %></p>
   <div id='locHub'>
-    <h3><%= locs[0].pname %></h3>
+    <h3>Current Location: <%= locs[0].pname %></h3>
     <p><%= locs[0].pdesc %></p>
-    <h4>Connecting Routes</h4>
+    <h4>Connecting Routes:</h4>
     <ul class="hub">
       <% locs.forEach(function(l) { %>
           <% if (l.status) { %>
