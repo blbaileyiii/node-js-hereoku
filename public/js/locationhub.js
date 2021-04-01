@@ -32,6 +32,8 @@ function buildLocHubHTML(hubObj) {
     let h4 = document.createElement("h4");
     let ul = document.createElement("ul");
 
+    ul.classList.add("hub");
+
     //console.log(hubObj);
 
     hubObj = hubObj.results;
@@ -43,9 +45,10 @@ function buildLocHubHTML(hubObj) {
         //console.log(hubObj[i]);
         let li = document.createElement("li");
         if (hubObj[i].status){
-            li.innerHTML = hubObj[i].cname + " - <button value='" + hubObj[i].cid + "' onclick='setLocation(this.value)'>Explore</button>";
+            li.innerHTML = "<div class='name'>" + hubObj[i].cname + "</div><button class='hub-button open' value='" + hubObj[i].cid + "' onclick='setLocation(this.value)'><span>Travel</span><span class='glyphicon glyphicon-random'></span></button>";
         } else {
-            li.innerHTML = hubObj[i].cname + " - <span class='glyphicon glyphicon-lock'></span> Locked";    
+            li.innerHTML = "<div class='name'>" + hubObj[i].cname + "</div><div class='hub-button locked'><span class='glyphicon glyphicon-lock'></span><span>Locked</span></div>";    
+            
         }
         //console.log(li);
         ul.appendChild(li);

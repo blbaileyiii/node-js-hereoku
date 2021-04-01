@@ -1,39 +1,69 @@
-.jumbotron {
-  background: #532F8C;
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap');
+
+body {
+  font-family: 'Fondamento', Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Ruslan Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+h2 {
+  padding: 0.5rem 1rem 0;
   color: white;
-  padding-bottom: 80px;
+  text-shadow: 2px 2px 5px black;
+  background-image: linear-gradient(to right, black, white 75%);
+  border-radius: 0.75rem 0 0 0.75rem;
 }
 
-.jumbotron .btn-primary {
-  background: #845ac7;
-  border-color: #845ac7;
+.hub {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  list-style: none;
+  gap: 2rem;
 }
 
-.jumbotron .btn-primary:hover {
-  background: #7646c1;
+.hub li {
+  grid-column: span 3;
+  font-size: 2rem;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.jumbotron p {
-  color: #d9ccee;
-  max-width: 75%;
-  margin: 1em auto 2em;
+.name {
+  padding: 2rem;
+  font-weight: 600;
 }
 
-.navbar + .jumbotron {
-  margin-top: -20px;
+.hub-button {
+  background: black;
+  color: white;
+  border: none;
+  outline: none;
+  margin: 0;
+  width: 100%;
+  padding: 0.75rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border-radius: 0 0 0.9rem 0.9rem;
 }
 
-.jumbotron .lang-logo {
-  display: block;
-  background: #B01302;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  border: 2px solid white;
+.hub-button > span{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.jumbotron .lang-logo img {
-  max-width: 100%;
+.hub-button.open:hover {
+  background: #60d394;
+  color: black;
+}
+
+.hub-button.locked:hover {
+  background: #f71735;
 }

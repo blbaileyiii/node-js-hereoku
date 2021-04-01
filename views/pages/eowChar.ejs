@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%- include ("../partials/header.ejs") %>
+  <%- include ('../partials/header.ejs') %>
 </head>
 
 <body>
 
-<%- include ("../partials/nav.ejs") %>
+<%- include ('../partials/nav.ejs') %>
 
-<div class="container">
+<div class='container'>
   <h2><%= character[0].charname %></h2>
-  <input type="hidden" class="charid" value='<%= character[0].charid %>'>
+  <input type='hidden' class='charid' value='<%= character[0].charid %>'>
   <p><%= character[0].bio %></p>
-  <div id="locHub">
+  <div id='locHub'>
     <h3><%= locs[0].pname %></h3>
     <p><%= locs[0].pdesc %></p>
     <h4>Connecting Routes</h4>
-    <ul>
+    <ul class="hub">
       <% locs.forEach(function(l) { %>
           <% if (l.status) { %>
-            <li><%= l.cname %> - <button value='<%= l.cid %>' onclick="setLocation(this.value)"; %>>Explore</button></li>
+            <li><div class='name'><%= l.cname %></div><button class='hub-button open' value='<%= l.cid %>' onclick='setLocation(this.value)' %>><span>Travel</span><span class='glyphicon glyphicon-random'></span></button></li>
           <% } else { %>
-            <li><%= l.cname %> - <span class="glyphicon glyphicon-lock"></span> Locked</li>
+            <li><div class='name'><%= l.cname %></div><div class='hub-button locked'><span class='glyphicon glyphicon-lock'></span><span>Locked</span></div></li>
             <% } %>
       <% }); %>
     </ul>    
@@ -30,7 +30,7 @@
 
 </div>
 
-<script src="/js/locationhub.js"></script>
+<script src='/js/locationhub.js'></script>
 
 </body>
 </html>
